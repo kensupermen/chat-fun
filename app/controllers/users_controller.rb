@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @users = User.all.where.not(id: session[:user_id])
   end
 
   def new
