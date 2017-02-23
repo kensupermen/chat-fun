@@ -16,7 +16,7 @@
         <%= message.body %>
         <% if message.read_at %>
         <br>
-        <small><i>Read at: <%= message.read_at.strftime('%c') %></i></small>
+        <small><i>Read at: <%= message.read_at.strftime('%H:%M:%S %A %d/%m/%y') %></i></small>
       <% end %>
       </td>
     </tr>

@@ -20,6 +20,11 @@ class MessagesController < ApplicationController
     render 'sent_messages'
   end
 
+  def show
+    @message = Message.find_by_id(params[:id])
+    @message.update read_at: Time.now
+  end
+
   private
   def message_params
     params.require(:message).permit(:body, :recipient)

@@ -15,8 +15,8 @@
       <td><%= message.sender %></td>
       <td><%= message.body %></td>
     <% else %>
-      <td><b><%= message.sender %></b></td>
-      <td><b><%= message.body %></b></td>
+      <td><b><%= link_to message.sender, message_path(message.id) %></b></td>
+      <td><b><%= link_to message.body, message_path(message.id) %></b></td>
 
     <% end%>
     </tr>
