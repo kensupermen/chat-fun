@@ -4,7 +4,7 @@
 
 Submitted by: **Vo Tan Tho**
 
-Time spent: **X** hours
+Time spent: **15** hours
 
 URL: **Insert your Heroku URL here**
 
@@ -56,7 +56,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2017 Vo Tan Tho <votantho93@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
