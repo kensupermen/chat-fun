@@ -13,7 +13,13 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= link_to "Add friend", root_path, class: 'btn btn-primary' %></td>
+      <% if user.relationships.where(friend_id: current_user.id, status: "pending").count > 0 %>
+        <td><%= link_to "Accept friend", friends_accept_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
+      <% elsif current_user.relationships.where(friend_id: user.id).count == 0 && user.relationships.where(friend_id: current_user.id).count == 0 %>
+         <td><%= link_to "Add friend", friends_add_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
+       <% elsif current_user.relationships.where(friend_id: user.id, status: "pending").count > 0 %>
+        <td><%= link_to "Pending", nil  , class: 'btn btn-primary' %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

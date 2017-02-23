@@ -20,6 +20,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def send_friend_request
+    current_user.send_friend_request(params[:friend_id])
+    flash[:success] = "Sent friend request."
+    redirect_to users_path
+  end
+
+  def accept_friend_request
+    current_user.accept_friend_request(params[:friend_id]) 
+    flash[:success] = "Accepted request"
+    redirect_to users_path
+  end
+
   private 
 
   def user_params
