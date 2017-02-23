@@ -14,6 +14,11 @@ class MessagesController < ApplicationController
     flash[:success] = "Sent success"
     redirect_to new_message_path
   end
+  
+  def sent_messages
+    @messages = current_user.lastest_sent_messages(10)
+    render 'sent_messages'
+  end
 
   private
   def message_params

@@ -1,0 +1,26 @@
+<h1>Sent messages</h1>
+
+
+<table class="table table-hover">
+  <thead class="thead thead-default">
+    <tr>
+      <td>Recipient</td>
+      <td>Subject</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @messages.each do |message|  %>
+    <tr>
+      <td><%= message.recipient %></td>
+      <td>
+        <%= message.body %>
+        <% if message.read_at %>
+        <br>
+        <small><i>Read at: <%= message.read_at.strftime('%c') %></i></small>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

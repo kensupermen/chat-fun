@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'friends/add' => 'users#send_friend_request'
   get 'friends/accept' => 'users#accept_friend_request'
 
+  get 'sent_messages' => 'messages#sent_messages'
+
   resources :users
   resources :sessions, only: [:new, :create]
   resources :messages
