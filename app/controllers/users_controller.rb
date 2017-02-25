@@ -21,20 +21,22 @@ class UsersController < ApplicationController
   end
 
   def send_friend_request
-    current_user.send_friend_request(params[:friend_id])
-    flash[:success] = "Sent friend request."
+    if current_user.send_friend_request(params[:friend_id])
+      flash[:success] = "Sent friend request."
+    end
     redirect_to users_path
   end
 
   def accept_friend_request
-    current_user.accept_friend_request(params[:friend_id]) 
-    flash[:success] = "Accepted request"
+    if current_user.accept_friend_request(params[:friend_id]) 
+      flash[:success] = "Accepted request"
+    end
     redirect_to users_path
   end
 
   private 
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:users).permit(:name, :email, :password)
   end
 end

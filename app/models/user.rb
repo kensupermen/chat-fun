@@ -37,7 +37,11 @@ class User < ApplicationRecord
 
   def accept_friend_request(friend_id)
     friend = User.find_by_id(friend_id) 
-    friend.relationships.where(friend_id: self.id).update(status: "accepted")
+    friend.relationships.where(friend: self).update(status: "accepted")
+  end
+
+  def block_friend(friend_id)
+    friend = User.find_by_id(friend_id) 
   end
 
 end
