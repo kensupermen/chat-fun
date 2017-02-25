@@ -1,26 +1,28 @@
-<h1>Find friends</h1>
+<div class="container" style="margin-top:100px">
+  <h1>Find friends</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-    <th></th>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <% if user.relationships.where(friend_id: current_user.id, status: "pending").count > 0 %>
-        <td><%= link_to "Accept friend", friends_accept_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
-      <% elsif current_user.relationships.where(friend_id: user.id).count == 0 && user.relationships.where(friend_id: current_user.id).count == 0 %>
-         <td><%= link_to "Add friend", friends_add_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
-       <% elsif current_user.relationships.where(friend_id: user.id, status: "pending").count > 0 %>
-        <td><%= link_to "Pending", nil  , class: 'btn btn-primary' %></td>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <% if user.relationships.where(friend_id: current_user.id, status: "pending").count > 0 %>
+            <td><%= link_to "Accept friend", friends_accept_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
+          <% elsif current_user.relationships.where(friend_id: user.id).count == 0 && user.relationships.where(friend_id: current_user.id).count == 0 %>
+            <td><%= link_to "Add friend", friends_add_path(:friend_id => user.id), class: 'btn btn-primary' %></td>
+          <% elsif current_user.relationships.where(friend_id: user.id, status: "pending").count > 0 %>
+            <td><%= link_to "Pending", nil  , class: 'btn btn-primary' %></td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
