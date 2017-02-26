@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
   def new 
     @message = Message.new
-    @friend_lists = Relationship.where(user_id: current_user.id, status: "accepted").or(Relationship.where(friend_id: current_user.id, status: "accepted"))
+    @friend_lists = Relationship.where(user: current_user, status: "accepted").or(Relationship.where(friend: current_user, status: "accepted"))
   end
 
   def create
