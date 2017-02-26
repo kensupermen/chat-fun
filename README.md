@@ -6,7 +6,7 @@ Submitted by: **Vo Tan Tho**
 
 Time spent: **20** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://chatfun-coderschool.herokuapp.com**
 
 ## User Stories
 
@@ -52,6 +52,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Run `rails db:seed` to generate database
+Run `heroku run rake db:migrate` to migrate db in heroku
 
 ## License
 
