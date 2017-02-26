@@ -44,8 +44,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+ - Add friend
+![Video Walkthrough](anim1.gif)
+- Send message
+![Video Walkthrough](anim2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
